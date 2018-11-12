@@ -2,9 +2,9 @@
 
 class aPattern:
     def __init__(self, inString):
-        self.value = inString 
+        self.value = inString
         #self.components = ["one", "two", "three"] 
-        self.components = [] 
+        self.components = list(inString) 
 
 class dList:
     def __init__(self, inFile):
@@ -14,21 +14,24 @@ class dList:
             line = line.rstrip('\n')
             #print line
             self.wordList.append(line)
+        self.wordFile.close
 
 if __name__ == '__main__':
 
     #print "begin"
 
     #a = aPattern("onetwothree")
-    a = aPattern("one two three")
+    #a = aPattern("one two three")
+    a = aPattern("gel leg")
     #d = dList("infile.txt")
     d = dList("/usr/share/dict/words")
     print(a.value)
-    #print(a.components)
+    print(a.components)
     #print(d.wordList)
     for word in d.wordList:
-        if a.value.find(word) != -1:
-            print word
-            a.components.append(word)
+        w = aPattern(word)
+        if a.value.find(w.value) != -1:
+            print w.value
+            a.components.append(w.value)
     print(a.components)
     #print "end"
