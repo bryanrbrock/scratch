@@ -30,8 +30,9 @@ if __name__ == '__main__':
     #print(d.wordList)
     for word in d.wordList:
         w = aPattern(word)
-        if a.value.find(w.value) != -1:
-            print w.value
-            a.components.append(w.value)
-    print(a.components)
+        for c in w.components:
+            if a.components.count(c) >= 1:
+                print w.value
+                print c
+    #print(a.components)
     #print "end"
